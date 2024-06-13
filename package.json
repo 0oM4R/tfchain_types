@@ -1,0 +1,23 @@
+{
+  "name": "tfchain_types",
+  "version": "1.0.0",
+  "description": "Generating types for tfchain",
+  "main": "index.js",
+  "author": "<omarksm09@gmail.com>",
+  "license": "MIT",
+    "scripts": {
+      "build": "yarn generate:defs && yarn generate:meta",
+      "generate:defs": "ts-node --skip-project node_modules/.bin/polkadot-types-from-defs --package tfchain_types/interfaces  --endpoint ./testing.json --input ./src/interfaces",
+      "generate:meta": "ts-node --skip-project node_modules/.bin/polkadot-types-from-chain --package tfchain_types/interfaces --endpoint ./testing.json --output ./src/interfaces",
+      "lint": "tsc --noEmit --pretty"
+    },
+    "dependencies": {
+      "@polkadot/api": "11.2.1"
+    },
+    "devDependencies": {
+      "@polkadot/typegen": "11.2.1",
+      "ts-node": "10.9.2",
+      "typescript": "5.4.5"
+    
+  }
+}
